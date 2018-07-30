@@ -1,5 +1,13 @@
 # Tasker
 
+A basic task tracking application designed to practice Angular/TS beyond the tutorial.
+
+## Feature todo
+ - Adding/Updating/Removing Tasks
+ - Viewing lists of tasks
+ - Viewing individual tasks
+ - Assigning tasks
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.0.
 
 ## Development server
