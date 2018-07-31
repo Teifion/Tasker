@@ -26,12 +26,28 @@ export class TaskService {
       );
   }
   
-  getTask (id: number): Observable<Task[]> {
-    throw "Not implemented";
+  getTask (id: number): Observable<Task> {
+    const url = `${this.tasksUrl}/${id}`;
+    return this.http.get<Task>(url).pipe(
+      tap(_ => this.log(`fetched task #${id}`)),
+      catchError(this.handleError<Task>(`getTask id=${id}`))
+    );
   }
   
   updateTask (task: Task): Observable<any> {
-    throw "Not implemented";
+    if (task.progress >= 100) {
+      task.status = 'Task completed';
+      task.progress = 100;
+      task.logs.push('Task completed');
+    } else {
+      task.logs.push(`Updated task to ${task.status} at ${task.progress}%`);
+    }
+    
+    // TODO append log to task log
+    return this.http.put(this.tasksUrl, task, httpOptions).pipe(
+      tap(_ => this.log(`updated task #${task.id}`)),
+      catchError(this.handleError<any>('updateTask'))
+    );
   }
   
   addTask (task: Task): Observable<Task> {

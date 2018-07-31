@@ -1,12 +1,57 @@
-<table>
-  <tbody>
-    <tr>
-      <td>
-        <label for="task-name" class="control-label">Name:</label>
-      </td>
-      <td>
-        <input [(ngModel)]="task.name" placeholder="name" id="task-name" />
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="! task" id="loading-spinner">
+  Loading task...
+</div>
+
+<div *ngIf="task">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <label for="task-name" class="control-label">Name:</label>
+        </td>
+        <td>
+          <input [(ngModel)]="task.name" id="task-name" />
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          <label for="task-owner" class="control-label">Owner:</label>
+        </td>
+        <td>
+          <input [(ngModel)]="task.owner" id="task-owner" />
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          <label for="task-progress" class="control-label">Progress:</label>
+        </td>
+        <td>
+          <input [(ngModel)]="task.progress" id="task-progress" />
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          <label for="task-status" class="control-label">Status:</label>
+        </td>
+        <td>
+          <input [(ngModel)]="task.status" id="task-status" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Task log</h4>
+  <ol>
+    <li *ngFor="let log of task.logs">
+      {{log}}
+    </li>
+  </ol>
+<br />
+</div>
+
+<button (click)="goBack()">Back</button>
+&nbsp;
+<button (click)="save()" *ngIf="task">Save</button>

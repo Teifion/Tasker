@@ -6,5 +6,5 @@ export class Task {
   progress: number;
   status: string;
   
-  log: string[];
+  logs: string[];
 }

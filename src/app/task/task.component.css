@@ -1,0 +1,12 @@
+h4 {
+  margin-bottom: 0;
+}
+
+ol {
+  margin-top: 3px;
+}
+
+#loading-spinner {
+  margin: 5px;
+  font-size: 1.1em;
+}
