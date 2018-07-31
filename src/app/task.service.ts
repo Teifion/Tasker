@@ -25,15 +25,15 @@ export class TaskService {
     throw "Not implemented";
   }
   
-  updateTask (hero: Task): Observable<any> {
+  updateTask (task: Task): Observable<any> {
     throw "Not implemented";
   }
   
-  addTask (hero: Task): Observable<Task> {
+  addTask (task: Task): Observable<Task> {
     throw "Not implemented";
   }
   
-  deleteTask (hero: Task | number): Observable<Task> {
+  deleteTask (task: Task | number): Observable<Task> {
     throw "Not implemented";
   }
   
@@ -45,5 +45,5 @@ export class TaskService {
     this.messageService.add(`TaskService: ${message}`);
   }
   
-  private heroesUrl = 'api/tasks';  // URL to web api
+  private tasksUrl = 'api/tasks';  // URL to web api
 }
