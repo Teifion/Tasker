@@ -28,6 +28,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
   cursor: hand;
+  color: #369;
 }
 button:hover {
   background-color: #DFF;
@@ -46,18 +47,23 @@ nav a {
   margin-right: 10px;
   margin-top: 10px;
   display: inline-block;
-  background-color: #eee;
+  background-color: #cef;
+  border: 1px solid #369;
   border-radius: 4px;
+  color: #369;
 }
-nav a:visited, a:link {
+/*nav a:visited, a:link {
   color: #607D8B;
-}
+}*/
 nav a:hover {
-  color: #039be5;
-  background-color: #CFD8DC;
+  background-color: #DFF;
+  border-color: #249;
 }
 nav a.active {
   color: #039be5;
+}
+nav {
+  margin-bottom: 7px;
 }
 
 /* everywhere else */
