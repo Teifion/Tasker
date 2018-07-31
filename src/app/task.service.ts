@@ -14,11 +14,16 @@ const httpOptions = {
 })
 export class TaskService {
   constructor(
+    private http: HttpClient,
     private messageService: MessageService
   ) { }
   
   getTasks (): Observable<Task[]> {
-    throw "Not implemented";
+    return this.http.get<Task[]>(this.tasksUrl)
+      .pipe(
+        tap(tasks => this.log('fetched tasks')),
+        catchError(this.handleError('getTasks', []))
+      );
   }
   
   getTask (id: number): Observable<Task[]> {
@@ -39,6 +44,25 @@ export class TaskService {
   
   searchTasks(term: string): Observable<Task[]> {
     throw "Not implemented";
+  }
+  
+  
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+       
+      console.error(error); // log to console
+      
+      this.log(`${operation} failed: ${error.message}`);
+      
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
   }
   
   private log(message: string) {
