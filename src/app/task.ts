@@ -1,7 +1,7 @@
 export class Task {
   id: number;
   name: string;
-  assigned_to: string;
+  owner: string;
   
   progress: number;
   status: string;

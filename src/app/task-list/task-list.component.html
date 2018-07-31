@@ -1,20 +1,34 @@
 <table class="tasks">
   <thead>
     <tr>
-      <th>Header</th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Owner</th>
+      <th colspan="2">Status</th>
+      <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let task of tasks">
       <td>
-        <span class="badge">{{task.id}}</span>
+        {{task.id}}
       </td>
       <td>
         {{task.name}}
       </td>
       <td>
-        <button class="delete" title="delete task"
-        (click)="delete(task)">x</button>
+        {{task.owner}}
+      </td>
+      <td>
+        {{task.status}}
+      </td>
+      <td>
+        {{task.progress}}%
+      </td>
+      <td>
+        <button routerLink="/task/{{task.id}}">
+          Show
+        </button>
       </td>
     </tr>
   </tbody>
