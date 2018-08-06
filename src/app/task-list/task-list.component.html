@@ -1,4 +1,34 @@
-<table class="tasks">
+<table style="margin-top: 10px;">
+  <tbody>
+    <tr>
+      <td>
+        <label>Name:</label>
+      </td>
+      <td>
+        <input #taskName />
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <label>Owner:</label>
+      </td>
+      <td>
+        <input #taskOwner />
+      </td>
+    </tr>
+    
+    <tr>
+      <td colspan="2">
+        <button (click)="add(taskName.value, taskOwner.value); taskName.value=''; taskOwner.value='';" style="display: block; width: 100%;">
+          Add
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="tasks" style="margin-top: 10px;">
   <thead>
     <tr>
       <th>ID</th>

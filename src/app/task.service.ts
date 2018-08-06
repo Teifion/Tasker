@@ -50,7 +50,10 @@ export class TaskService {
   }
   
   addTask (task: Task): Observable<Task> {
-    throw "Not implemented";
+    return this.http.post<Task>(this.tasksUrl, task, httpOptions).pipe(
+      tap((task: Task) => this.log(`added task: id=${task.id}`)),
+      catchError(this.handleError<Task>('addTask'))
+    );
   }
   
   deleteTask (task: Task | number): Observable<Task> {

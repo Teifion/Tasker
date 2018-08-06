@@ -20,4 +20,23 @@ export class TaskListComponent implements OnInit {
     this.taskService.getTasks()
     .subscribe(tasks => this.tasks = tasks);
   }
+  
+  add(name: string, owner: string): void {
+    name = name.trim();
+    owner = owner.trim();
+    
+    if (!name) { return; }
+    if (!owner) { return; }
+    
+    let task = { name, owner } as Task;
+    task.progress = 0;
+    task.status = "Created task";
+    task.logs = ["Created task"];
+    
+    // , 0, "Created task", ["Created task"]
+    this.taskService.addTask(task)
+      .subscribe(task => {
+        this.tasks.push(task);
+      });
+  }
 }
