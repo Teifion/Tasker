@@ -43,7 +43,6 @@ export class TaskService {
       task.logs.push(`Updated task to ${task.status} at ${task.progress}%`);
     }
     
-    // TODO append log to task log
     return this.http.put(this.tasksUrl, task, httpOptions).pipe(
       tap(_ => this.log(`updated task #${task.id}`)),
       catchError(this.handleError<any>('updateTask'))
