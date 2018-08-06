@@ -12,7 +12,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { AppRoutingModule } from './/app-routing.module';
 import { MessagesComponent } from './messages/messages.component';
-import { TaskNewComponent } from './task-new/task-new.component';
 
 @NgModule({
   imports: [
@@ -29,8 +28,7 @@ import { TaskNewComponent } from './task-new/task-new.component';
     TaskListComponent,
     TaskComponent,
     DashboardComponent,
-    MessagesComponent,
-    TaskNewComponent
+    MessagesComponent
   ],
   bootstrap: [AppComponent]
 })
